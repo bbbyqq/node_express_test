@@ -7,5 +7,5 @@ npm install
 
 - 启动命令
 ```
-npm run dev 或者 node api.js
+npm run dev 或者 nodemon api.js（nodemon可以实现热刷新）
 ```

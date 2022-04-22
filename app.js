@@ -15,14 +15,14 @@ app.all('*', function (req, res, next) {
 
 const questions = [
     {
-        data: 213,
-        num: 444,
-        age: 12
+        name: '小明',
+        sex: '男',
+        age: 18
     },
     {
-        data: 456,
-        num: 678,
-        age: 13
+        name: '小红',
+        sex: '女',
+        age: 20
     }]
 
 
