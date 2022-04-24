@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser') // post请求
 const app = express()
 
 
@@ -12,7 +13,7 @@ app.all('*', function (req, res, next) {
     next()
 })
 
-
+// get请求数据
 const questions = [
     {
         name: '小明',
@@ -23,19 +24,34 @@ const questions = [
         name: '小红',
         sex: '女',
         age: 20
-    }]
+    }
+]
 
 
-//写个接口123
-app.get('/123', function (req, res) {
+// get请求
+app.get('/list', function (req, res) {
     res.status(200)
-    res.json(questions)
+    res.send({
+        code:200,
+        data:questions,
+        msg:'操作成功'
+    })
+})
+
+// post请求
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.post("/login",function(req,res){
+    res.status(200)
+    res.send({
+        code:200,
+        msg:'登录成功'
+    })
 });
 
 //配置服务端口
 const server = app.listen(3000, function () {
-    // const host = server.address().address
     const port = server.address().port
-    console.log('Example app listening at http://%s:%s/%s', 'localhost', port, '123')
+    console.log(`http://localhost:${port}`)
 })
 
